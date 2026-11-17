@@ -4,10 +4,10 @@ import { join } from 'node:path';
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
 const text = [
-  'The greenhouse is quiet after rain. From the roof, water falls into a blue barrel: one small tick, then a pause wide enough for the next.',
-  'A tree frog rests on the brick ledge beside it, green as the moss in the mortar. Its toes are spread on the warm face of the brick.',
-  'Beyond the glass, pear leaves turn their pale undersides to the last light. The barrel fills by drops. The frog closes its gold eyes.',
-  'One bright bead clings to the roof edge, holding the garden upside down. In it, the pear tree hangs above itself.',
+  'After rain, the greenhouse roof ticks into a blue barrel. One drop, then a long pause before the next.',
+  "A tree frog rests on the brick ledge, toes spread in the mortar's green moss. The brick still holds the day's warmth.",
+  'Behind the glass, pear leaves turn their silver undersides to the last light. The barrel darkens by drops; one leaf wavers in its blue reflection. The frog shuts its gold eyes.',
+  'At the roof edge, one drop holds the pear tree upside down; a little dark tree trembles in the sky.',
 ].join('\n');
 
 writeFileSync(join(outputDir, 'entry.txt'), text);
