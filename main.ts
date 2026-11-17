@@ -3,6 +3,9 @@ import { join } from 'node:path';
 
 const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
+// This revised version follows one quiet greenhouse scene and its small tree frog.
+// Measured details give the rain a slower rhythm.
+// The inverted tree at the end is meant to stay with the reader.
 const text = [
   'After rain, the greenhouse roof ticks into a blue barrel. One drop, then a long pause before the next.',
   "A tree frog rests on the brick ledge, toes spread in the mortar's green moss. The brick still holds the day's warmth.",
