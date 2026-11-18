@@ -1,19 +1,22 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { mkdirSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 
-const paragraphs = [
-  'A wooden top spins on the kitchen floor, steady on its point. Its hum fills the room, low and even, while the small red dot painted on its rim flashes past the seam between the floorboards.',
-  'The hum sinks lower. The dot comes round again, unhurried now, and takes its time crossing the seam.',
-  'Once more the dot comes round, slower still, and the top begins to wobble. It leans, then settles onto its side. The hum fades out.',
-  'On the floorboards, the top lies still, its painted dot turned toward the window.',
+const paragraphs: string[] = [
+  "The calligrapher dips the brush and sets it to the paper. The stroke begins, black ink spreading into the grain.",
+  "The brush moves on. The line thins as the ink runs low. The brush slows, its tip dragging softly.",
+  "The brush moves once more, slower still. The line narrows to a hair. She lifts the brush.",
+  "On the rest, the brush lies still. Its tip is dark with ink. The character dries.",
 ];
 
-function joinParagraphs(parts: string[]): string {
-  return parts.join('\n\n');
+function assembleText(parts: string[]): string {
+  return parts.map((part) => part.trim()).join("\n\n");
 }
 
-const destination = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
-const text = joinParagraphs(paragraphs);
+const text = assembleText(paragraphs);
 
-mkdirSync(destination, { recursive: true });
-writeFileSync(join(destination, 'entry.txt'), text, 'utf8');
+const outputDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
+const outputFile = join(outputDir, "entry.txt");
+
+mkdirSync(outputDir, { recursive: true });
+writeFileSync(outputFile, text, "utf8");
+console.log(`Wrote ${outputFile} (${Buffer.byteLength(text, "utf8")} bytes)`);
